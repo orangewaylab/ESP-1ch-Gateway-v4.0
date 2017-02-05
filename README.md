@@ -1,6 +1,6 @@
 #Single Channel LoRaWAN Gateway
 
-Version 4.0, January 16, 2017
+Version 4.0.2, January 29, 2017
 Author: M. Westenberg (mw12554@hotmail.com)
 Copyright: M. Westenberg (mw12554@hotmail.com)
 
@@ -45,18 +45,18 @@ Version 4.0 includes CAD and Frequency Hopping spport and better web insterface 
 
 ##Features
 
-New features in version 4.0.0 (January 16, 2017)):
+New features in version 4.0.0 (January 26, 2017)):
 
 - Implement both CAD (Channel Activity Detection) and HOP functions (HOP being experimental)
 - Message history visible in web interface
 - Repaired the WWW server memory leak (due to String assignments)
-- Repaired the WWW server memory leak (due to String assignments)
-- Still works on one interrupt line (GPIO15) only, but suitable
+- Still works on one interrupt line (GPIO15), or can be configured to work with 2 interrupt lines for dio0 and dio1
   for two or more interrupt lines (better performance for automatic SF setting?)
 - Webserver with debug level 3 and level 4 (for interrupt testing).
   dynamic setting thorugh the web interface. Level 3 and 4 will show more info
   on sf, rssi, interrupt flags etc.
 - Tested on Arduino IDE 1.18.0
+- See http://things4u.github.io for documentation
 
 New features in version 3.3.0 (January 1, 2017)):
 
@@ -195,14 +195,20 @@ Edit .h file (ESP-sc-gway.h) to change configuration (look for: "Configure these
 
 ###Webserver
 
-The built-in webserver can be used to display status and debugging information. It can be accessed with the following URL: http://YourGatewayIP:80 The webserver shows various configuration settings as well as providing functions to set debug mode and reset statistics and the WiFiManager accesspoint.
+The built-in webserver can be used to display status and debugging information. It can be accessed with the following URL: http://YourGatewayIP:80 The webserver shows various configuration settings as well as providing functions to set parameters.
+
+The following parameters can be set using the webServer. 
+- Debug Level (0-4)
+- CAD mode on or off (STD mode)
+- Switch frequency hopping on and off
+- When frequency Hoppin is off: Select the frequency the gateway will work on
+- When CAD mode is off: Select the Spreading Factor (SF) the gateway will work with
 
 ## To DO
 The following things are still on my wish list to make to the single channel gateway:
 - Receive downstream message with commands form the server. These can be used to configure
   the gateway through downlink messages (such as setting the SF)
-- Use the SPIFF filesystem on the ESP8266 to store configuration dsetting data
-- Allow setting of gateway configuration through the webserver
+- Repair the _loraSensor functions for use with TTN
 
 ##Notes
 
