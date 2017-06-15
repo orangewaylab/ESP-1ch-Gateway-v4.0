@@ -1,5 +1,8 @@
 #Single Channel LoRaWAN Gateway
 
+This is a fork to add GSM Modem connectivity (work in progress)
+Look for things4u's original repository https://github.com/things4u/ESP-1ch-Gateway-v4.0 if you just want wifi connectivity
+
 Version 4.0.2, January 29, 2017
 Author: M. Westenberg (mw12554@hotmail.com)
 Copyright: M. Westenberg (mw12554@hotmail.com)
